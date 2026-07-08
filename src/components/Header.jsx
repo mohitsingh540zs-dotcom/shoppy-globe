@@ -52,9 +52,9 @@ const Header = () => {
 
           {/* Navigation */}
           <nav className="flex gap-6">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/cart">Cart</NavLink>
-            <NavLink to="/checkout">Checkout</NavLink>
+            <NavLink to="/" className={'transition-all duration-300 ease-in-out hover:scale-110 hover:underline'}>Home</NavLink>
+            <NavLink to="/cart" className={'transition-all duration-300 ease-in-out hover:scale-110 hover:underline'}>Cart</NavLink>
+            <NavLink to="/checkout" className={'transition-all duration-300 ease-in-out hover:scale-110 hover:underline'}>Checkout</NavLink>
           </nav>
 
           {/* Search */}

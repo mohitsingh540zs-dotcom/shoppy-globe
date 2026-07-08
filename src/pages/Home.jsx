@@ -1,8 +1,10 @@
 import Hero from "../components/Hero";
+import FeaturedProducts from '../components/FeaturedProducts'
 import useProducts from "../hooks/useProducts";
 
 const Home = () => {
   const { products, loading, error } = useProducts();
+
 
   if (loading) {
     return <h1 className="text-center mt-10">Loading...</h1>;
@@ -15,7 +17,7 @@ const Home = () => {
   return (
     <>
       <Hero />
-
+      <FeaturedProducts products={products} />
     </>
   );
 };
