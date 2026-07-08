@@ -15,3 +15,14 @@ export async function getProducts() {
 
   return response.json();
 }
+
+// Fetcher for particular product
+export const getProductById = async (id) =>{
+  const response = await fetch(API.PRODUCT(id));
+
+  if(!response.ok){
+    throw new Error(`Failed to fetch product ${id}`);
+  }
+  
+  return response.json();
+}
