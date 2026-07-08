@@ -1,28 +1,22 @@
+import Hero from "../components/Hero";
 import useProducts from "../hooks/useProducts";
 
 const Home = () => {
   const { products, loading, error } = useProducts();
 
   if (loading) {
-    return <h2>Loading...</h2>;
+    return <h1 className="text-center mt-10">Loading...</h1>;
   }
 
   if (error) {
-    return <h2>{error}</h2>;
+    return <h1 className="text-center mt-10 text-red-500">{error}</h1>;
   }
 
   return (
-    <div>
-      <h1>Products</h1>
+    <>
+      <Hero />
 
-      {products.map((product) => (
-        <div key={product.id}>
-          <h3>{product.title}</h3>
-          <p>${product.price}</p>
-          <p>{product.rating}</p>
-        </div>
-      ))}
-    </div>
+    </>
   );
 };
 
