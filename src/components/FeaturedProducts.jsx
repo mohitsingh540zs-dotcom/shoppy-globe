@@ -1,5 +1,4 @@
 import ProductCard from "./ProductCard"
-import { Link } from 'react-router-dom'
 
 const FeaturedProducts = ({ products }) => {
     return (
@@ -9,14 +8,11 @@ const FeaturedProducts = ({ products }) => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {products.map((product) => (
                     // to provide a link to particular product
-                    <Link
+
+                    <ProductCard
                         key={product.id}
-                        to={`/product/${product.id}`}
-                    >
-                        <ProductCard
-                            product={product}
-                        />
-                    </Link>
+                        product={product}
+                    />
                 ))}
             </div>
         </section>

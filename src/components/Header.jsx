@@ -1,8 +1,18 @@
 import { NavLink } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 import SearchBar from "./SearchBar";
+import { useSelector } from "react-redux";
+
 
 const Header = () => {
+
+  const cart = useSelector((state) => state.cart.cart);
+
+  const totalItems = cart.reduce((total, item) => {
+    return total + item.quantity;
+  }, 0);
+
+
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-5 py-4">
@@ -65,7 +75,7 @@ const Header = () => {
             <ShoppingCart size={28} />
 
             <span className="absolute -top-2 -right-2 h-5 w-5 rounded-full bg-red-500 text-white text-xs flex items-center justify-center">
-              0
+              {totalItems}
             </span>
           </NavLink>
 

@@ -1,6 +1,25 @@
 import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+    const images = [
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800",
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800",
+        "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800",
+        "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800",
+        "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800",
+    ];
+
+    const [currentImage, setCurrentImage] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImage(prev => (prev + 1) % images.length);
+        }, 3500);
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <section className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
             <div className="max-w-7xl mx-auto px-5 py-20">
@@ -52,9 +71,9 @@ const Hero = () => {
                     <div className="flex justify-center cursor-pointer">
 
                         <img
-                            src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800"
+                            src={images[currentImage]}
                             alt="Shopping"
-                            className="rounded-xl shadow-2xl w-full max-w-md object-cover transition-all duration-300 ease-in-out hover:scale-110"
+                            className="rounded-xl shadow-2xl w-full max-w-lg h-72 object-cover transition-all duration-300 ease-in-out hover:scale-110"
                         />
 
                     </div>
