@@ -37,7 +37,6 @@ const ProductDetails = () => {
   }
 
   function handleAddToCart() {
-    console.log("Button clicked")
     dispatch(addToCart(product));
   }
   return (

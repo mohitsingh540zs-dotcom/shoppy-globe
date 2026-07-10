@@ -1,6 +1,6 @@
 import { Minus, Plus, Trash2 } from "lucide-react";
 import { useDispatch } from "react-redux";
-import {increaseQuantity, decreaseQuantity} from '../redux/cartSlice'
+import {increaseQuantity, decreaseQuantity, removeFromCart} from '../redux/cartSlice'
 
 const CartItem = ({ product }) => {
 
@@ -64,6 +64,7 @@ const CartItem = ({ product }) => {
                 {/* Remove */}
 
                 <button
+                    onClick={() => dispatch(removeFromCart(product.id))}
                     className="flex items-center gap-2 mt-5 text-red-500 hover:text-red-700"
                 >
                     <Trash2 size={18} />
