@@ -21,8 +21,8 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
-            <div className="max-w-7xl mx-auto px-5 py-20">
+        <section className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-8 px-4">
+            <div className="max-w-7xl mx-auto px-5 py-20 bg-black/20 rounded-xl">
 
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
 

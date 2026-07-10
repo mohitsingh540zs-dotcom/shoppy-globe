@@ -29,11 +29,33 @@ const cartSlice = createSlice({
                 });
             }
         },
+
+        increaseQuantity(state, action) {
+            const product = state.cart.find(
+                (item) => item.id === action.payload
+            );
+
+            if (product) {
+                product.quantity++;
+            }
+        },
+
+        decreaseQuantity(state, action) {
+            const product = state.cart.find(
+                (item) => item.id === action.payload
+            );
+
+            if (product && product.quantity > 1) {
+                product.quantity--;
+            }
+        },
     },
 });
 
 export const {
-    addToCart
+    addToCart,
+    increaseQuantity,
+    decreaseQuantity,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
