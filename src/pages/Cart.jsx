@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import CartItem from "../components/CartItem";
+import { clearCart } from "../redux/cartSlice";
+import { useDispatch } from "react-redux";
 
 const Cart = () => {
+
+  const dispatch = useDispatch();
 
   // Get cart data from Redux
   const cart = useSelector((state) => state.cart.cart);
@@ -55,8 +59,7 @@ const Cart = () => {
 
             {/* Left Side */}
 
-            <div className="h-[80vh] lg:col-span-2 space-y-5 overflow-y-auto">
-
+            <div className="xl:h-[60vh] lg:col-span-2 space-y-5 overflow-y-auto">
               {
                 cart.map((item) => (
                   <CartItem
@@ -87,9 +90,15 @@ const Cart = () => {
                 <span>${totalPrice.toFixed(2)}</span>
               </div>
 
-              <button className="w-full bg-blue-500 text-white py-3 rounded hover:bg-blue-600">
-                Checkout
-              </button>
+              <div className='flex flex-col gap-2'>
+                <Link to={'/checkout'}>
+                  <button className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 cursor-pointer">
+                    Checkout
+                  </button>
+                </Link>
+                <button
+                onClick={()=>dispatch(clearCart())} className='w-full bg-red-500 text-white py-3 rounded-lg hover:bg-red-600 cursor-pointer'>Clear Cart</button>
+              </div>
 
             </div>
 
