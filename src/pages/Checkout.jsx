@@ -46,11 +46,9 @@ const Checkout = () => {
       return;
     }
 
-    alert("Order Placed Successfully!");
-
     dispatch(clearCart());
 
-    navigate("/");
+    navigate("/success");
   }
 
   return (
