@@ -4,6 +4,7 @@ import { ArrowLeft, Minus, Plus, Star } from "lucide-react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
+import Loader from "../components/Loader";
 
 
 const ProductDetails = () => {
@@ -15,7 +16,7 @@ const ProductDetails = () => {
 
 
   if (loading) {
-    return <h1>Loading....</h1>
+    return <Loader />
   }
 
   if (error) {

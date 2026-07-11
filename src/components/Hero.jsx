@@ -21,8 +21,8 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-8 px-4">
-            <div className="max-w-7xl mx-auto px-5 py-20 bg-black/20 rounded-xl">
+        <section className="bg-black text-white py-8 px-4">
+            <div className="max-w-7xl mx-auto px-5 py-20 bg-white/20 backdrop-blur-2xl rounded-xl">
 
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
 
@@ -30,7 +30,7 @@ const Hero = () => {
 
                     <div>
 
-                        <span className="bg-blue-500 px-4 py-2 rounded-full text-sm">
+                        <span className="bg-white text-black px-4 py-2 rounded-full text-sm">
                             New Collection 2026
                         </span>
 
@@ -48,7 +48,7 @@ const Hero = () => {
                         <div className="flex gap-4 mt-8">
 
                             <button
-                                className="bg-white text-blue-700 px-6 py-3 rounded-lg font-semibold flex items-center gap-2 hover:bg-gray-100 transition"
+                                className="bg-white text-black px-6 py-3 rounded-lg font-semibold flex items-center gap-2 hover:bg-gray-100 transition cursor-pointer"
                             >
                                 Shop Now
 
@@ -57,7 +57,7 @@ const Hero = () => {
                             </button>
 
                             <button
-                                className="border border-white px-6 py-3 rounded-lg hover:bg-white hover:text-blue-700 transition"
+                                className="border border-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition cursor-pointer"
                             >
                                 Browse Products
                             </button>

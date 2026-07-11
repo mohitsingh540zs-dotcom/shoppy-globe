@@ -2,6 +2,7 @@ import Hero from "../components/Hero";
 import FeaturedProducts from '../components/FeaturedProducts'
 import useProducts from "../hooks/useProducts";
 import { useSelector } from "react-redux";
+import Loader from "../components/Loader";
 
 const Home = () => {
   const { products, loading, error } = useProducts();
@@ -17,7 +18,7 @@ const Home = () => {
   );
 
   if (loading) {
-    return <h1 className="text-center mt-10">Loading...</h1>;
+    return <Loader />
   }
 
   if (error) {
