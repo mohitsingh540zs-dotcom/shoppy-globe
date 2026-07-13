@@ -2,34 +2,40 @@ import { useEffect, useState } from "react";
 import { getProducts } from "../services/api";
 
 const useProducts = () => {
-    // Stores the fetched products
+
+    // Store all products
     const [products, setProducts] = useState([]);
 
-    // Tracks loading state
+    // Loading state while fetching data
     const [loading, setLoading] = useState(true);
 
-    // Stores any error message
+    // Store API error message
     const [error, setError] = useState("");
 
     useEffect(() => {
+
+        // Fetch products from the API
         const fetchProducts = async () => {
             try {
-                // API call
                 const data = await getProducts();
 
-                // DummyJSON returns data set in setProducts
+                // Save the products array in state
                 setProducts(data.products);
+
             } catch (err) {
                 setError(err.message || "Something went wrong");
+
             } finally {
-                // Runs everytime if request succeeds or fails
+                // Stop loading once the request is complete
                 setLoading(false);
             }
         };
 
         fetchProducts();
+
     }, []);
 
+    // Expose data and request state
     return {
         products,
         loading,
